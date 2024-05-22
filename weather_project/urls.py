@@ -26,5 +26,4 @@ urlpatterns = [
 
     # user urls
     path('home/', weather_views.home, name='home'),
-    path('index/', weather_views.index, name='index'),
 ]   

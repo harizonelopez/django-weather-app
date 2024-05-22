@@ -1,1 +1,114 @@
-<h1>Hy man</h1>
+{% extends 'base.html' %}
+{% block title %} homepage {% endblock %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #282c35;
+            color: #fff;
+            align-items: center;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        header {
+            background-color: #1e2229;
+            text-align: center;
+            padding: 1em;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #373c49;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        footer {
+            background-color: #1e2229;
+            text-align: center;
+            padding: 0em 0;
+            position: fixed;
+            bottom: 0;
+            width: 65%;
+        }
+        
+        .weather-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto;
+            animation: spin 15s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(2deg); }
+            100% { transform: rotate(180deg); }
+        }
+
+        h1 {
+            line-height: 1.7;
+            color: aqua;
+        }
+
+        h2 {
+            color: rgb(21, 21, 24);
+        }
+
+        h3 {
+            color: rebeccapurple;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div class="container mt-5">
+            <h1 align="center">Weather App</h1>
+            <section>
+                <form method="get" action="" class="form-inline justify-content-center mt-3">
+                    <input 
+                        type="text" 
+                        name="city" 
+                        class="form-control mr-2" 
+                        placeholder="Enter city" required>
+                    <button type="submit" class="btn btn-primary">Get Weather</button>
+                </form>
+            </section>
+            <section>
+                {% if error %}
+                    <div class="alert alert-danger mt-3">
+                        {{ error }}
+                    </div>
+                {% endif %}
+                {% if weather_data %}
+                <div class="mt-4">
+                    <h2 class="text-center">{{ weather_data.name }} City</h2>
+                    <p class="text-center">Temperature: {{ weather_data.main.temp }} °C</p>
+                    <p class="text-center">Weather: {{ weather_data.weather.0.description }}</p>
+        
+                    <div class="text-center">
+                        <img class="weather-icon" src="http://openweathermap.org/img/wn/{{ weather_data.weather.0.icon }}.png" alt="Weather Icon">
+                    </div>
+                </div>
+                {% endif %}
+            </section>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Dev_aladinh production</p>
+        </footer>
+
+    </section>
+</body>
+</html>
+{% endblock %}
