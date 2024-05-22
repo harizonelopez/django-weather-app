@@ -9,6 +9,8 @@ This Django Weather App allows users to check the current weather conditions for
 - Allows users to enter a city name to get the current weather information.
 - Displays the temperature, weather description, and an animated weather icon representing the current weather condition.
 - Provides error messages if the entered city is not found or if there is an issue fetching weather data.
+- Feel free to copy and paste this markdown directly into your README file and customize it with your project-specific details.
+ 
 
 ## Technologies Used
 
