@@ -14,13 +14,16 @@ def get_weather_icon(icon_code):
 def home(request):
     weather_data = None
     error = None
+
     if 'city' in request.GET:
         city = request.GET['city']
         weather_data = get_weather_data(city)
+
         if weather_data.get('cod') == '404':
-            error = f"'{city}' city not found. Please try again."
-            messages.success(request, error)
+            error = f"{city} city not found. Please try again."
+            messages.warning(request, error)
             weather_data = None
+            
         elif weather_data:
             weather_data['weather'][0]['icon_url'] = get_weather_icon(weather_data['weather'][0]['icon'])
     
