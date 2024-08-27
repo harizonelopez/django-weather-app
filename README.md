@@ -23,4 +23,4 @@ This Django Weather App allows users to check the current weather conditions for
 ## Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/django-weather-app.git
+   git clone https://github.com/harizonelopez/django-weather-app.git
