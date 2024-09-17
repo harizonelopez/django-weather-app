@@ -13,11 +13,11 @@ This Django Weather App allows users to check the current weather conditions for
 
 ## Technologies Used
 
-- Django: Web framework for building the backend of the application.
+- Django.
 - OpenWeatherMap API: Provides weather data for various locations.
-- Html: A frontend language for creating the user interface.
-- Bootstrap: Frontend framework for styling the user interface.
-- Bootstrap Icons: Icons library for displaying weather icons.
+- Html.
+- Bootstrap.
+- Bootstrap Icons.
 
 
 ## Clone the repository:
