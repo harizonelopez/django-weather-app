@@ -6,7 +6,8 @@ from django.contrib import messages
 
 def get_weather_data(city):
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
-    response = requests.get(url)
+    response = requests.get(url, timeout=10)
+    
     return response.json()
 
 def get_weather_icon(icon_code):

@@ -2,11 +2,7 @@
 {% block title %} homepage {% endblock %}
 
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         body {
@@ -38,6 +34,7 @@
 
         footer {
             background-color: #1e2229;
+            color: turquoise;
             text-align: center;
             padding: 0em 0;
             position: fixed;
@@ -69,6 +66,14 @@
         h3 {
             color: rebeccapurple;
         }
+
+        h5 {
+            color: #cd10b1;
+        }
+
+        h6 {
+            color: #18943b;
+        }
     </style>
 </head>
 <body>
@@ -82,7 +87,7 @@
                         name="city" 
                         class="form-control mr-2" 
                         placeholder="Enter city" required>
-                    <button type="submit" class="btn btn-primary">Get Weather</button>
+                    <button type="submit" class="btn btn-outline-primary">Get Weather</button>
                 </form>
             </section>
             <section>
@@ -93,9 +98,11 @@
                 {% endif %}
                 {% if weather_data %}
                 <div class="mt-4">
+                    <hr><hr>
                     <h2 class="text-center">{{ weather_data.name }} City</h2>
-                    <p class="text-center">Temperature: {{ weather_data.main.temp }} °C</p>
-                    <p class="text-center">Weather: {{ weather_data.weather.0.description }}</p>
+                    <hr><hr>
+                    <h5 class="text-center">Temperature: {{ weather_data.main.temp }} °C</h5>
+                    <h6 class="text-center">Weather: {{ weather_data.weather.0.description }}</h6>
         
                     <div class="text-center">
                         <img class="weather-icon" src="http://openweathermap.org/img/wn/{{ weather_data.weather.0.icon }}.png" alt="Weather Icon">
@@ -111,5 +118,4 @@
 
     </section>
 </body>
-</html>
 {% endblock %}
